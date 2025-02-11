@@ -1,0 +1,33 @@
+GET http://localhost:4000/tasks
+###
+POST http://localhost:4000/create-task
+Content-Type: application/json
+
+{
+    "id":3,
+    "title":"abhishek vachadu",
+    "task":"kurchunnnadu",
+    "status":"complete",
+    "date":"11/02/2025"
+}
+###
+PUT http://localhost:4000/update-status-to-completed
+Content-Type: application/json
+
+{
+    "id":"1"
+}
+###
+PUT http://localhost:4000/update-status-to-incomplete
+Content-Type: application/json
+
+{
+    "id":"1"
+}
+###
+DELETE  http://localhost:4000/delete-task
+Content-Type: application/json
+
+{
+    "id":"355"
+}
