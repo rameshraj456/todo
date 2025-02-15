@@ -19,7 +19,7 @@ function AllTasks() {
     },[])
   return (
     <div>
-        <NewTask />
+        
       ALL TASKS  
       <div style={{display:"flex" , justifyContent:"space-around" , alignItems:"center" , flexWrap:"wrap" }}>
         {
