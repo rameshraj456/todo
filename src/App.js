@@ -1,44 +1,30 @@
-
-import { createBrowserRouter, RouterProvider ,Link, useNavigate} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import AllTasks from './components/AllTasks';
 import NewTask from './components/NewTask';
 import SingleTask from './components/SingleTask';
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path:'',
-      element:<AllTasks/>
-    },
-    {
-      path:'create-task',
-      element:<NewTask/>
-    },
-    {
-      path:'task',
-      element:<SingleTask/>
-    },
-  ])
-  const navigate = useNavigate();
-  
   return (
-    
-    <div className="App">
-      <RouterProvider router={router}/>
-
-        <nav className="bg-blue-600 p-4 text-white flex justify-between">
-        <div className="text-lg font-bold">Task Manager</div>
-          <div>
-          <button
-          onClick={()=>navigate('./task')}
-          >Single</button>
-          <button
-          onClick={()=>navigate('./create-task')}
-          >mutilple</button>
-          </div>
+    <Router>
+      <div className="App">
+        {/* Navigation Bar */}
+        <nav className="navbar">
+          <ul className="nav-list">
+            <li><Link to="/">All Tasks</Link></li>
+            <li><Link to="/create-task">Create Task</Link></li>
+            <li><Link to="/task">Single Task</Link></li>
+          </ul>
         </nav>
-    </div>
+
+        {/* Routes Configuration */}
+        <Routes>
+          <Route path="/" element={<AllTasks />} />
+          <Route path="/create-task" element={<NewTask />} />
+          <Route path="/task" element={<SingleTask />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
