@@ -1,4 +1,6 @@
 import React from 'react'
+import './Task.css'
+
 
 function Task( { task , index} ) {
 
@@ -42,7 +44,7 @@ function Task( { task , index} ) {
     }
 
   return (
-    <div  style={{backgroundColor:"wheat" , padding:"15px" , margin:"10px" , textAlign:"left" , borderRadius:"10px"}}>
+    <div  style={{  padding:"15px" , margin:"10px" , textAlign:"left" , borderRadius:"10px"}}>
       <p> id : {task.id}</p>
       <p> date : {task.date}</p>
       <p> title : {task.title}</p>
@@ -50,14 +52,16 @@ function Task( { task , index} ) {
       
        {
         task.status == "completed" ?
-        <p style={{ backgroundColor:"green"}}>completed</p>
+        <p style={{ backgroundColor:"green",padding:'5px'}}>completed</p>
         :
-        <p style={{  backgroundColor:"red" }}> in-complete </p>
+        <p style={{  backgroundColor:"red",padding:'5px' }}> in-complete </p>
        }
 
-       <div>
+       <div style={{display:'flex',justifyContent:'space-around',flexWrap:'wrap'}}>
         <button 
         onClick={()=>deleteTask()}
+        className='btn'
+        
         >DELETE</button>
          
 
@@ -65,11 +69,11 @@ function Task( { task , index} ) {
             task.status == "completed" ?
             <button 
             onClick={() => setAsInComplete()}
-            style={{ backgroundColor:"red"}}>in - completed</button>
+            style={{ backgroundColor:"red"}} className='btn'>in - completed</button>
             :
             <button 
             onClick={ ()=> setAsComplete()}
-            style={{  backgroundColor:"green" }}> completed </button>
+            style={{  backgroundColor:"green" }} className='btn'> completed </button>
         }
 
        </div>
